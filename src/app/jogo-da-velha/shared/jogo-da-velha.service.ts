@@ -40,15 +40,15 @@ export class JogoDaVelhaService {
   }
 
   get showInicio () {
-    return this.showInicio;
+    return this._showInicio;
   }
 
   get showFinal () {
-    return this.showFinal;
+    return this._showFinal;
   }
 
   get showTabuleiro () {
-    return this.showTabuleiro;
+    return this._showTabuleiro;
   }
 
   get jogador () {
@@ -57,7 +57,7 @@ export class JogoDaVelhaService {
 
   iniciarJogo (): void {
     this._showInicio = false;
-    this._showTabuleiro = false;
+    this._showTabuleiro = true;
   }
 
   jogar (posX: number, posY: number): void {
