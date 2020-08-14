@@ -63,8 +63,10 @@ export class JogoDaVelhaService {
   jogar (posX: number, posY: number): void {
     // jogada inválida
     if (this.tabuleiro[posX][posY] !== this.VAZIO || this.vitoria) {
+      console.log(`jogada inválida ${posX} ${posY}`)
       return;
     }
+    console.log(`jogada passou ${posX} ${posY}`)
 
     this.tabuleiro[posX][posY] = this._jogador;
     this.numMovimentos++;
@@ -147,7 +149,8 @@ export class JogoDaVelhaService {
       jogada = [jogadas[k][0], jogadas[k][1]];
     }
 
-    this.tabuleiro[jogada[0], jogada[1]] = this._jogador;
+    this.tabuleiro[jogada[0]][jogada[1]] = this._jogador;
+    console.log(`computador jogou ${jogada[0]} ${jogada[1]} ${this.jogador}`)
     this.numMovimentos++;
     this.vitoria = this.fimJogo(jogada[0], jogada[1], this.tabuleiro, this._jogador);
     this._jogador = (this._jogador === this.X) ? this.O : this.X;
